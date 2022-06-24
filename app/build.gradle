@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    defaultConfig {
+        applicationId "ar.com.develup.tateti"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 2
+        versionName "1.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Agregar dependencias de Firebase en esta seccion
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    // Dependencia de Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.0.0')
+    // Dependencias de Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    // Dependencias de Analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    // Dependencias de Authentication
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    // Dependencias de Remote Config
+    implementation 'com.google.firebase:firebase-config-ktx'
+    // Dependencias de Realtime Database
+    implementation 'com.google.firebase:firebase-database:19.7.0'
+
+}
